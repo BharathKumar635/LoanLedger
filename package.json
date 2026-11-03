@@ -1,0 +1,17 @@
+{
+  "name": "villageborrow",
+  "version": "1.0.0",
+  "description": "Professional money borrowing management website for villagers and private lenders",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "village-borrow",
+    "money-lending",
+    "banking",
+    "financial"
+  ],
+  "author": "",
+  "license": "ISC"
+}

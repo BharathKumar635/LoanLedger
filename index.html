@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VillageBorrow - Money Borrowing Management System</title>
+  <meta name="description" content="Professional financial management website for recording and managing village money borrowing agreements and legal bond papers.">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Top Institutional Bar -->
+  <header class="top-bar">
+    <div class="top-bar-left">
+      <span class="top-badge">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+        </svg>
+        Official Registry
+      </span>
+      <span>Private Lending &amp; Borrower Documentation System</span>
+    </div>
+    <div class="top-bar-right">
+      <span>System Timestamp:</span>
+      <span class="header-clock" id="systemTimeDisplay">--</span>
+    </div>
+  </header>
+
+  <!-- Main Navigation Header -->
+  <nav class="main-header" aria-label="Main Navigation">
+    <div class="header-container">
+      <a href="#" class="brand-link" id="brandHomeLink" aria-label="VillageBorrow Home">
+        <div class="brand-logo-icon">
+          <!-- Bank Building Pillar SVG Icon -->
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 21h18M3 10h18M5 10v11M9 10v11M15 10v11M19 10v11M12 2L2 7h20L12 2z"></path>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <h1>VILLAGEBORROW</h1>
+          <p>Money Lending Management</p>
+        </div>
+      </a>
+
+      <!-- Primary Navigation Links -->
+      <ul class="nav-links">
+        <li>
+          <button type="button" class="nav-button active" id="navHomeBtn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            Home
+          </button>
+        </li>
+        <li>
+          <button type="button" class="nav-button" id="navNewBorrowingBtn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="12" y1="18" x2="12" y2="12"></line>
+              <line x1="9" y1="15" x2="15" y2="15"></line>
+            </svg>
+            New Borrowing
+          </button>
+        </li>
+        <li>
+          <button type="button" class="nav-button" id="navRecordsBtn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+            </svg>
+            Borrowed Records
+          </button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Page Main Content Area -->
+  <main class="page-container">
+
+    <!-- ====================================================================
+         VIEW 1: HOME PAGE (Prominently displaying the two primary options)
+         ==================================================================== -->
+    <section id="viewHome" class="app-view active">
+      <!-- Institutional Hero Header -->
+      <div class="hero-banner">
+        <div class="hero-tag">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+          </svg>
+          Financial Management Portal
+        </div>
+        <h2 class="hero-title">Money Borrowing Records Management</h2>
+        <p class="hero-subtitle">
+          Secure, structured ledger designed for private money lenders to register borrower agreements, enforce legal bond paper documentation, and maintain transparent lending records.
+        </p>
+      </div>
+
+      <!-- Section Label -->
+      <div class="section-label">
+        <h2>Primary Management Options</h2>
+        <span>Select an action to proceed</span>
+      </div>
+
+      <!-- Primary Options Grid -->
+      <div class="primary-cards-grid">
+        
+        <!-- Option 1: New Borrowing Card -->
+        <article class="option-card primary-option" id="cardNewBorrowing" role="button" tabindex="0" aria-label="Open New Borrowing Form">
+          <div class="card-top">
+            <div class="card-icon-box gold-theme">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="12" y1="18" x2="12" y2="12"></line>
+                <line x1="9" y1="15" x2="15" y2="15"></line>
+              </svg>
+            </div>
+            <span class="card-badge gold">Primary Action</span>
+          </div>
+          <h3 class="card-title">New Borrowing</h3>
+          <p class="card-description">
+            Register a new money borrowing agreement. Enter borrower details, set loan amount and interest terms, and attach legal bond paper documentation.
+          </p>
+          <div class="card-action-btn btn-gold">
+            <span>Create New Borrowing</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </div>
+        </article>
+
+        <!-- Option 2: Borrowed Records Card -->
+        <article class="option-card secondary-option" id="cardRecords" role="button" tabindex="0" aria-label="Access Borrowed Records">
+          <div class="card-top">
+            <div class="card-icon-box navy-theme">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+              </svg>
+            </div>
+            <span class="card-badge navy">Ledger Access</span>
+          </div>
+          <h3 class="card-title">Borrowed Records</h3>
+          <p class="card-description">
+            Access and inspect registered borrowing records. View borrower profiles, loan amounts, agreed interest rates, and legal bond paper scans.
+          </p>
+          <div class="card-action-btn btn-navy">
+            <span>Access Borrowed Records</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Trust & Standards Strip -->
+      <aside class="trust-strip" aria-label="System Standards">
+        <div class="trust-item">
+          <div class="trust-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+          </div>
+          <div class="trust-text">
+            <h4>Bond Paper Verification</h4>
+            <p>Every transaction requires signed legal bond documentation.</p>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+          </div>
+          <div class="trust-text">
+            <h4>Institutional Record Keeping</h4>
+            <p>Structured borrower details, contact numbers, and terms.</p>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+          </div>
+          <div class="trust-text">
+            <h4>Audit-Ready Ledger</h4>
+            <p>Permanent historical registry with reference numbering.</p>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+
+    <!-- ====================================================================
+         VIEW 2: NEW BORROWING PAGE (Dedicated Borrower Details Form)
+         ==================================================================== -->
+    <section id="viewNewBorrowing" class="app-view">
+      
+      <!-- Subnavigation: Back button & Breadcrumbs -->
+      <nav class="page-subnav" aria-label="Breadcrumb Navigation">
+        <button type="button" class="back-link" id="backToHomeBtn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          Back to Home
+        </button>
+        <div class="breadcrumb-trail">
+          <span>Home</span>
+          <span>/</span>
+          <span class="active">New Borrowing</span>
+        </div>
+      </nav>
+
+      <!-- Main Form Container -->
+      <div id="formContainer">
+        <div class="form-card">
+          
+          <!-- Form Header -->
+          <header class="form-header">
+            <div class="form-header-badge">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+              </svg>
+              Borrower Details &amp; Legal Deed
+            </div>
+            <h2>New Borrowing Registration</h2>
+            <p>Please enter the complete borrower particulars, financial terms, and attach the official bond paper image.</p>
+          </header>
+
+          <!-- Form Body -->
+          <div class="form-body">
+            
+            <!-- Global Error Notification (Shown when form validation fails) -->
+            <div id="formGlobalAlert" class="alert-box error" style="display: none;" role="alert">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+              </svg>
+              <div>
+                <strong>Incomplete or Invalid Submission:</strong>
+                <span> Please correct the highlighted fields and ensure the bond paper image is uploaded.</span>
+              </div>
+            </div>
+
+            <form id="borrowingForm" novalidate>
+
+              <!-- ================= SECTION 1: BORROWER PERSONAL DETAILS ================= -->
+              <fieldset class="form-section">
+                <div class="section-heading">
+                  <span class="section-number">1</span>
+                  <h3>Borrower Personal Information</h3>
+                  <span class="section-desc">Identification &amp; Contact</span>
+                </div>
+
+                <div class="grid-2">
+                  
+                  <!-- Field 1: Surname -->
+                  <div class="form-group">
+                    <label for="surname" class="field-label">
+                      Surname <span class="required-mark">*</span>
+                    </label>
+                    <input 
+                      type="text" 
+                      id="surname" 
+                      name="surname" 
+                      class="form-control" 
+                      placeholder="e.g. Patil, Sharma, Rathod"
+                      autocomplete="family-name"
+                      required
+                    >
+                    <div class="error-message" id="surnameError"></div>
+                  </div>
+
+                  <!-- Field 2: Name -->
+                  <div class="form-group">
+                    <label for="name" class="field-label">
+                      Name <span class="required-mark">*</span>
+                    </label>
+                    <input 
+                      type="text" 
+                      id="name" 
+                      name="name" 
+                      class="form-control" 
+                      placeholder="e.g. Ramesh, Suresh, Anil"
+                      autocomplete="given-name"
+                      required
+                    >
+                    <div class="error-message" id="nameError"></div>
+                  </div>
+
+                  <!-- Field 3: Phone Number -->
+                  <div class="form-group">
+                    <label for="phone" class="field-label">
+                      Phone Number <span class="required-mark">*</span>
+                    </label>
+                    <div class="input-wrapper">
+                      <span class="input-prefix">+91</span>
+                      <input 
+                        type="tel" 
+                        id="phone" 
+                        name="phone" 
+                        class="form-control has-prefix" 
+                        placeholder="98765 43210"
+                        maxlength="10"
+                        autocomplete="tel"
+                        required
+                      >
+                    </div>
+                    <div class="form-helper">10-digit primary mobile number</div>
+                    <div class="error-message" id="phoneError"></div>
+                  </div>
+
+                  <!-- Field 4: Alternate Name -->
+                  <div class="form-group">
+                    <label for="altName" class="field-label">
+                      Alternate Name <span class="optional-mark">(Optional)</span>
+                    </label>
+                    <input 
+                      type="text" 
+                      id="altName" 
+                      name="altName" 
+                      class="form-control" 
+                      placeholder="e.g. Alias, Village Nickname, or Father's Name"
+                    >
+                    <div class="form-helper">Known alias or family elder reference</div>
+                    <div class="error-message" id="altNameError"></div>
+                  </div>
+
+                  <!-- Field 5: Alternate Number -->
+                  <div class="form-group grid-full">
+                    <label for="altPhone" class="field-label">
+                      Alternate Number <span class="optional-mark">(Optional)</span>
+                    </label>
+                    <div class="input-wrapper">
+                      <span class="input-prefix">+91</span>
+                      <input 
+                        type="tel" 
+                        id="altPhone" 
+                        name="altPhone" 
+                        class="form-control has-prefix" 
+                        placeholder="98123 45678"
+                        maxlength="10"
+                      >
+                    </div>
+                    <div class="form-helper">Secondary contact number or guarantor / family member phone</div>
+                    <div class="error-message" id="altPhoneError"></div>
+                  </div>
+
+                </div>
+              </fieldset>
+
+
+              <!-- ================= SECTION 2: FINANCIAL BORROWING TERMS ================= -->
+              <fieldset class="form-section">
+                <div class="section-heading">
+                  <span class="section-number">2</span>
+                  <h3>Borrowing Terms &amp; Interest</h3>
+                  <span class="section-desc">Loan Agreement Figures</span>
+                </div>
+
+                <div class="grid-2">
+                  
+                  <!-- Field 6: Borrowed Amount -->
+                  <div class="form-group">
+                    <label for="amount" class="field-label">
+                      Borrowed Amount <span class="required-mark">*</span>
+                    </label>
+                    <div class="input-wrapper">
+                      <span class="input-prefix">₹</span>
+                      <input 
+                        type="number" 
+                        id="amount" 
+                        name="amount" 
+                        class="form-control has-prefix" 
+                        placeholder="50000"
+                        min="1"
+                        step="1"
+                        required
+                      >
+                    </div>
+                    <div class="form-helper">Principal borrowed sum in INR (₹)</div>
+                    <div class="error-message" id="amountError"></div>
+                  </div>
+
+                  <!-- Field 7: Interest Rate -->
+                  <div class="form-group">
+                    <label for="interestRate" class="field-label">
+                      Interest Rate <span class="required-mark">*</span>
+                    </label>
+                    <div class="input-wrapper">
+                      <input 
+                        type="number" 
+                        id="interestRate" 
+                        name="interestRate" 
+                        class="form-control has-suffix" 
+                        placeholder="2.0"
+                        min="0"
+                        step="0.1"
+                        required
+                      >
+                      <span class="input-suffix">% / month</span>
+                    </div>
+                    <div class="form-helper">Monthly percentage rate agreed upon</div>
+                    <div class="error-message" id="interestRateError"></div>
+                  </div>
+
+                </div>
+              </fieldset>
+
+
+              <!-- ================= SECTION 3: BOND PAPER IMAGE UPLOAD ================= -->
+              <fieldset class="form-section">
+                <div class="section-heading">
+                  <span class="section-number">3</span>
+                  <h3>Bond Paper Image</h3>
+                  <span class="section-desc">Legal Notarized / Stamp Paper Scan</span>
+                </div>
+
+                <!-- Field 8: Bond Paper Image Upload Zone -->
+                <div class="form-group">
+                  <label class="field-label">
+                    Bond Paper Document Scan <span class="required-mark">*</span>
+                  </label>
+
+                  <!-- Dedicated Upload Section -->
+                  <div class="upload-container" id="dropZone" tabindex="0" role="button" aria-label="Upload Bond Paper Image">
+                    <input 
+                      type="file" 
+                      id="bondPaperInput" 
+                      class="upload-input-hidden" 
+                      accept="image/jpeg,image/png,image/jpg,image/webp" 
+                    >
+
+                    <!-- Default Placeholder when no image is uploaded -->
+                    <div id="uploadPlaceholder">
+                      <div class="upload-icon-circle">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                          <polyline points="17 8 12 3 7 8"></polyline>
+                          <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                      </div>
+                      <div class="upload-prompt-title">Click to upload or drag &amp; drop bond paper image</div>
+                      <div class="upload-prompt-desc">Take a clear photo or scan of the signed stamp paper agreement</div>
+                      <span class="upload-specs">Supported formats: JPG, PNG, WEBP (Max 10MB)</span>
+                    </div>
+
+                    <!-- Selected Image Preview Section -->
+                    <div id="previewSection" class="preview-card" style="display: none;">
+                      <div class="preview-thumb-box" id="viewImageThumbBtn" title="Click to enlarge preview">
+                        <img id="previewImage" src="" alt="Bond Paper Document Preview">
+                        <div class="preview-thumb-overlay">
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            <line x1="11" y1="8" x2="11" y2="14"></line>
+                            <line x1="8" y1="11" x2="14" y2="11"></line>
+                          </svg>
+                        </div>
+                      </div>
+                      <div class="preview-details">
+                        <div class="preview-filename" id="previewFilename">bond-paper.jpg</div>
+                        <div class="preview-meta">
+                          <span id="previewFilesize">-- KB</span>
+                          <span>&bull;</span>
+                          <span>Image Verified</span>
+                        </div>
+                        <div class="preview-status">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                          </svg>
+                          Ready for Submission
+                        </div>
+                      </div>
+                      <div class="preview-actions">
+                        <button type="button" class="btn-secondary-sm" id="changeImageBtn">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                          </svg>
+                          Change Image
+                        </button>
+                        <button type="button" class="btn-danger-sm" id="removeImageBtn" title="Remove current image">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="3 6 5 6 21 6"></polyline>
+                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                          </svg>
+                          Remove
+                        </button>
+                      </div>
+                    </div>
+
+                  </div>
+                  <div class="error-message" id="bondImageError" style="display: none;"></div>
+                </div>
+
+              </fieldset>
+
+              <!-- Form Footer Actions -->
+              <footer class="form-footer">
+                <button type="button" class="cancel-btn" id="cancelFormBtn">
+                  Cancel &amp; Return
+                </button>
+                <button type="submit" class="submit-btn" id="submitFormBtn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  Submit Borrowing Record
+                </button>
+              </footer>
+
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Success Confirmation Screen (Displayed upon successful form submission) -->
+      <div id="successContainer" style="display: none;">
+        <div class="success-card">
+          <div class="success-icon-badge">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+          </div>
+          <h2>Borrowing Record Successfully Registered</h2>
+          <p class="success-desc">
+            The borrower details and signed bond paper documentation have been verified and permanently committed to the lending ledger.
+          </p>
+
+          <div class="record-summary-box">
+            <div class="summary-row">
+              <span class="label">Reference ID</span>
+              <span class="value" id="successRefCode" style="color: var(--navy-800); font-family: monospace; font-size: 1rem;">--</span>
+            </div>
+            <div class="summary-row">
+              <span class="label">Borrower Name</span>
+              <span class="value" id="summaryName">--</span>
+            </div>
+            <div class="summary-row">
+              <span class="label">Primary Phone</span>
+              <span class="value" id="summaryPhone">--</span>
+            </div>
+            <div class="summary-row">
+              <span class="label">Principal Amount</span>
+              <span class="value" id="summaryAmount" style="color: var(--navy-900); font-size: 1rem;">--</span>
+            </div>
+            <div class="summary-row">
+              <span class="label">Interest Rate</span>
+              <span class="value" id="summaryInterest">--</span>
+            </div>
+            <div class="summary-row">
+              <span class="label">Attached Document</span>
+              <span class="value" id="summaryBondAttached" style="color: var(--green-700);">--</span>
+            </div>
+          </div>
+
+          <div class="success-actions">
+            <button type="button" class="submit-btn" id="newBorrowingAgainBtn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+              New Borrowing Entry
+            </button>
+            <button type="button" class="card-action-btn btn-navy" id="viewRecordsFromSuccessBtn" style="width: auto;">
+              View in Borrowed Records
+            </button>
+            <button type="button" class="cancel-btn" id="successBackHomeBtn">
+              Back to Home
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- ====================================================================
+         VIEW 3: BORROWED RECORDS PAGE
+         ==================================================================== -->
+    <section id="viewRecords" class="app-view">
+      
+      <!-- Subnavigation: Back button & Breadcrumbs -->
+      <nav class="page-subnav" aria-label="Breadcrumb Navigation">
+        <button type="button" class="back-link" id="recordsBackHomeBtn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          Back to Home
+        </button>
+        <div class="breadcrumb-trail">
+          <span>Home</span>
+          <span>/</span>
+          <span class="active">Borrowed Records</span>
+        </div>
+      </nav>
+
+      <div class="records-header">
+        <div>
+          <h2>Official Borrowed Records Ledger</h2>
+          <p style="color: var(--text-muted); font-size: 0.875rem;">Archived borrowing transactions with attached bond paper deeds</p>
+        </div>
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <span id="totalRecordsBadge" class="card-badge navy">0 Records</span>
+          <button type="button" class="btn-secondary-sm" id="recordsNewBtn" style="padding: 0.6rem 1rem;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+            Add New Borrowing
+          </button>
+        </div>
+      </div>
+
+      <!-- Records Table Container -->
+      <div id="recordsTableContainer" class="records-table-container">
+        <table class="records-table">
+          <thead>
+            <tr>
+              <th>Reference ID &amp; Date</th>
+              <th>Borrower Name &amp; Alias</th>
+              <th>Phone Numbers</th>
+              <th>Principal Amount</th>
+              <th>Monthly Interest</th>
+              <th>Bond Paper Document</th>
+            </tr>
+          </thead>
+          <tbody id="recordsTableBody">
+            <!-- Populated dynamically by JavaScript -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Empty State Container -->
+      <div id="emptyRecordsState" class="empty-state" style="display: none;">
+        <div class="empty-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+          </svg>
+        </div>
+        <h3>No Borrowing Records Found</h3>
+        <p>No transactions have been recorded in the ledger yet. Click below to register the first borrowing agreement.</p>
+        <button type="button" class="submit-btn" onclick="document.getElementById('navNewBorrowingBtn').click();">
+          Record New Borrowing
+        </button>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Full-Screen Bond Paper Viewer Modal -->
+  <div id="imageModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modalTitle">Bond Paper Document Viewer</h3>
+        <button type="button" class="modal-close-btn" id="modalCloseBtn" aria-label="Close viewer">&times;</button>
+      </div>
+      <div class="modal-body">
+        <img id="modalImage" src="" alt="Enlarged Bond Paper Document">
+      </div>
+    </div>
+  </div>
+
+  <!-- Professional Footer -->
+  <footer class="main-footer">
+    <div class="footer-container">
+      <div>
+        <strong>VillageBorrow Ledger</strong> &bull; Financial Records Management System for Private Money Lenders
+      </div>
+      <div>
+        Designed for Village &amp; Rural Credit Administration &bull; Confidential &amp; Verified Records
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
+
