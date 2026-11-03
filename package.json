@@ -1,16 +1,18 @@
 {
-  "name": "villageborrow",
+  "name": "loanledger",
   "version": "1.0.0",
-  "description": "Professional money borrowing management website for villagers and private lenders",
-  "main": "server.js",
+  "description": "LoanLedger - Money Borrowing Management System",
   "scripts": {
-    "start": "node server.js"
+    "start": "cd backend && npm start",
+    "start:backend": "cd backend && npm start",
+    "start:frontend": "cd frontend && npm start",
+    "test": "cd backend && npm test"
   },
   "keywords": [
-    "village-borrow",
-    "money-lending",
-    "banking",
-    "financial"
+    "loanledger",
+    "money-borrowing",
+    "mongodb-atlas",
+    "express"
   ],
   "author": "",
   "license": "ISC"

@@ -1,0 +1,18 @@
+{
+  "name": "loanledger-frontend",
+  "version": "1.0.0",
+  "description": "Frontend for LoanLedger - Money Borrowing Management System",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "loanledger",
+    "banking",
+    "frontend"
+  ],
+  "author": "",
+  "license": "ISC"
+}
+
